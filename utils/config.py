@@ -15,6 +15,8 @@ def get_arguments():
         'num_workers' : 2,
         'epoch' : 200,
         'num_cls' : 100,
+        'folds' : 10,
+        'max_depth' : 5,
 
         # optimizer & criterion
         'lr' : 0.01,
@@ -37,7 +39,7 @@ def setup(args):
     # for mac
     if torch.backends.mps.is_available():
         device = torch.device("mps")
-        
+
     if args.seed is not None:
         random.seed(args.seed)
         np.random.seed(args.seed)
